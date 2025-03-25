@@ -1,0 +1,11 @@
+<div class="flex justify-evenly items-center text-xs">
+    <a href="/" class="text-lg font-bold" style="font-family: 'Stalinist One', sans-serif;">KARN</a>
+    <a href="/">Home</a>
+    <a href="/donation/donationPage">List offerings</a>
+    <a href="">About</a>
+    <%if(locals.user){%>
+        <a href="/logout">logOut</a>
+    <%}else{%>
+        <a href="/login">Login</a>
+    <%}%>
+</div>

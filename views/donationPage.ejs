@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <%-include('../partials/head')%>
+    <title>Document</title>
+</head>
+<body class="p-4">
+    <%-include('../partials/navbar')%>
+    <h1  class="text-5xl md:text-[12rem] font-[700] m-6 text-center text-green-600">Donation Listing paGe\.</h1>
+    <%if(!locals.user){%>
+        <p class="text-center text-blue-300 mt-10">please login for listing offerings!</p>
+    <%}%>
+    <%if(locals.user){%>
+        <form action="/donation/donationListing" method="post" class="flex flex-col w-[90%] mx-auto text-sm border-1 rounded-lg p-4 mt-10" enctype="multipart/form-data">
+            <input type="text" name="title" id="" placeholder="enter the title" class="p-1 m-2 text-center" required>
+            <input type="text" name="timings" id="" placeholder="enter the timings" class="p-1 m-2 text-center" required>
+            <input type="text" name="address" id="" placeholder="enter your address" class="p-1 m-2 text-center" required>
+            <input type="text" name="description" id="" placeholder="enter the description" class="p-1 m-2 text-center" required>
+            <label for="file" class="p-1 m-2 text-center">Upload Image</label>
+            <input type="file" name="file" id="file" class="p-1 m-2 text-center" required>    
+            <input type="text" name="name" id="" placeholder="enter your name" class="p-1 m-2 text-center" required>
+            <input type="text" name="contact" id="" placeholder="enter your contact no:" class="p-1 m-2 text-center" required>
+            <button type="submit" class="text-lg font-bold">submit</button>
+        </form>   
+    <%}%>
+
+
+    
+
+</body>
+</html>

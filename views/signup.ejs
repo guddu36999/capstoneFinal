@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%-include('../partials/head')%>
+        <title>Document</title>
+        <style>
+            .gradient {
+                background: linear-gradient(to right, white,#232b34);
+            }
+
+            .glass {
+                background: rgba(255, 255, 255, 0.1);
+                backdrop-filter: blur(10px);
+                -webkit-backdrop-filter: blur(10px);
+                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            }
+
+            input,
+            select {
+                background-color: rgba(255, 255, 255, 0.1) !important;
+                color: black;
+                padding: 10px;
+                border-radius: 5px;
+                transition: background-color 0.3s ease-in-out, border-color 0.3s ease-in-out;
+            }
+
+            input:-webkit-autofill,
+            input:-webkit-autofill:hover,
+            input:-webkit-autofill:focus,
+            textarea:-webkit-autofill,
+            textarea:-webkit-autofill:hover,
+            textarea:-webkit-autofill:focus,
+            select:-webkit-autofill,
+            select:-webkit-autofill:hover,
+            select:-webkit-autofill:focus {
+                background: rgba(255, 255, 255, 0.1) !important;
+                -webkit-text-fill-color: black !important;
+                transition: background-color 5000s ease-in-out 0s;
+            }
+
+            input:focus,
+            select:focus {
+                background: rgba(255, 255, 255, 0.1) !important;
+            }
+        </style>
+
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+</head>
+
+<body class=" p-4 flex justify-center items-center mx-auto">
+    <!-- #000c40 -->
+    <form action="/signup" method="post"
+        class="glass flex flex-col justify-center items-center w-[90%] h-auto  md:w-[20%]  p-8 rounded-sm mx-auto text-sm shadow-2xl">
+        <h1 class="text-6xl md:text-4xl font-bold text-green-900">Create your account</h1>
+        <label for="name" class="block w-full text-left">Name:</label>
+        <input type="text" name="name" id="" class="glass focus:outline-none w-full p-2 m-2  rounded-sm " required>
+        <label for="email" class="block w-full text-left">Email:</label>
+        <input type="text" name="email" id="" class="glass focus:outline-none w-full p-2 m-2 rounded-sm" required>
+        <label for="password" class="block w-full text-left">Password:</label>
+        <input type="text" name="password" id="" class="glass focus:outline-none w-full p-2 m-2 rounded-sm" required>
+        <label for="city" class="block w-full text-left">City:</label>
+        <select name="city" id="" required class="glass focus:outline-none w-full p-2 m-2 border-1 rounded-sm">
+            <option value="Jalandhar">Jalandhar</option>
+            <option value="Darbhanga">Darbhanga</option>
+            <option value="Hyderabad">Hyderabad</option>
+        </select>
+        <button type="submit"
+            class="w-full rounded-sm text-green-900 p-2 pl-8 pr-8 m-2 text-center text-lg font-bold ">signUp!</button>
+        <%if(locals.msg){%>
+            <p class="text-red-500">
+                <%=msg%>
+            </p>
+            <%}%>
+    </form>
+
+</body>
+
+</html>
