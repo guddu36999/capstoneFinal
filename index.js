@@ -2,6 +2,7 @@ const express=require('express');
 const ejs=require('ejs');
 const app=express();
 app.set('view engine',ejs);
+const mongoose=require('mongoose');
 const port=3000;
 
 //middlewares
@@ -14,10 +15,10 @@ app.use(checkAuthentication);
 app.use(express.static('public'));
 
 //datbase connection
-const connectToMongoDB=require('./DatabaseConnect');
-async function connection(){
+// const connectToMongoDB=require('./DatabaseConnect');
+async function connection(url){
     try{
-           connectToMongoDB();
+           mongoose.connect(url);
            console.log(`connected to mongoDB`);
     }
     catch(err){
@@ -25,13 +26,15 @@ async function connection(){
 
     }
 }
-connection();
+connection("mongodb+srv://guddu36999:e6yfmnUa81SelExl@cluster0.yrp6quw.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0");
 
 //routings
 const staticRoutes=require('./routes/staticRoutes');
 app.use('/',staticRoutes);
 const donationRoutes=require('./routes/donation');
 app.use('/donation',donationRoutes);
+const userRoutes=require('./routes/user');
+app.use('/user',userRoutes);
 
 
 app.listen(port,(err)=>{

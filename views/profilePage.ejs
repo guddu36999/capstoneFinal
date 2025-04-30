@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <%-include('../partials/head')%>
+        <title>Document</title>
+    </head>
+<body>
+    
+    <% if (locals.user) { %>
+        <h1><%=user.name%></h1>
+        <p><%=user.email%></p>
+    <% } %>
+      
+
+    <% if (locals.Data) { %>
+        <% for (let i = 0; i < Data.length; i++) { %>
+            <h1><%= Data[i].title %></h1>
+            <p><%= Data[i].description %></p>
+            <a href="/donation/delDonation/<%=Data[i]._id%>">DELETE</a>
+        <% } %>
+
+    <% } %>
+    
+
+
+</body>
+</html>

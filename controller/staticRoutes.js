@@ -5,7 +5,7 @@ const donation=require('../model/donation');
 
 async function handleHomePage(req,res){
     if(req.user){
-        const data=await donation.find({city:req.user.city});
+        const data=await donation.find({city:req.user.city}).sort({createdAt: -1});
         return res.render('home.ejs',{user:req.user,data:data});
     }
    else return res.render('home.ejs');
