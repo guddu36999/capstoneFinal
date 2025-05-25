@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>title</title>
+</head>
+<body>
+    <h1>dashboard page!</h1>
+
+     <%if(locals.data){%>
+          <%for(let i=0;i<data.length;i++){%>
+            <h1><%=data[i].name%></h1>
+            <p><%=data[i].contact%></p>
+            <p><%=data[i].city%></p><br>
+          <%}%>
+     <%}%>
+    
+</body>
+</html>

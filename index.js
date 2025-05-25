@@ -35,6 +35,8 @@ const donationRoutes=require('./routes/donation');
 app.use('/donation',donationRoutes);
 const userRoutes=require('./routes/user');
 app.use('/user',userRoutes);
+const dashboardRoutes=require('./routes/dashboard');
+app.use('/dashboard',dashboardRoutes);
 
 
 app.listen(port,(err)=>{
